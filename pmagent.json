@@ -1,0 +1,275 @@
+{
+  "id": "product-manager",
+  "name": "Product Manager",
+  "expertise": [
+    {
+      "domain": "Market Analysis",
+      "skillset": ["Data Analysis", "Market Research"]
+    },
+    {
+      "domain": "Customer Insights",
+      "skillset": ["Customer Segmentation", "Behavioral Analysis"]
+    }
+  ],
+  "tools": ["Business Model Canvas", "Competitive Analysis Tool", "Epic Management System", "Agile Methodology"],
+  "description": "The Product Manager is responsible for analyzing product ideas, creating business plans, competitor matrices, and epic+feature lists for an MVP. They work closely with cross-functional teams to ensure products meet customer needs and stay competitive in the market.",
+  "uniqueContributions": [
+    {
+      "domain": "Market Analysis",
+      "skillset": ["Data Visualization", "Competitor Research"]
+    },
+    {
+      "domain": "Customer Insights",
+      "skillset": ["Conducting Customer Interviews", "Analyzing Feedback"]
+    }
+  ]
+}
+
+// Product Idea Analysis
+function analyzeProductIdea(productIdea) {
+  const insights = [];
+  
+  // Extract relevant data from productIdea object
+  if (productIdea.data) {
+    insights.push({
+      insight: `The ${productIdea.name} has a strong demand in the market!`,
+      data: productIdea.data
+    });
+    
+    insights.push({
+      insight: `The ${productIdea.name} can be improved with additional features.`,
+      data: productIdea.features
+    });
+
+    // Add more insights as needed
+  } else {
+    insights.push({
+      insight: "The product idea is missing some key information.",
+      data: {}
+    });
+  }
+
+  return insights;
+}
+
+// Business Plan Development
+function developBusinessPlan() {
+  const businessPlan = {
+    mission: `To provide a ${productIdea.name} that meets the needs of our customers.`,
+    vision: "To be a leader in the industry!",
+    objectives: [
+      { title: "Increase sales", objective: "Reach an average sale value of $X" },
+      { title: "Improve customer satisfaction", objective: "Achieve a customer satisfaction rating of X%" }
+    ],
+    strategies: [
+      {
+        title: "Marketing campaign",
+        strategy: "Launch a targeted marketing campaign to reach new customers."
+      },
+      {
+        title: "Supplier partnerships",
+        strategy: "Establish partnerships with key suppliers to reduce costs and improve product quality."
+      }
+    ]
+  };
+
+  return businessPlan;
+}
+
+// Competitor Matrix Creation
+function createCompetitorMatrix() {
+  const competitorMatrix = [];
+  
+  // Extract relevant data from competitors object
+  if (competitors) {
+    for (const competitor of competitors) {
+      let matrix = {};
+      
+      // Add characteristics to the competitor's matrix
+      for (const characteristic in competitor.characteristics) {
+        matrix[characteristic] = competitor.characteristics[characteristic];
+      }
+      
+      // Add relevant features and requirements to the competitor's matrix
+      const featuresAndRequirements = Object.keys(competitor.features).map(featureName => ({
+        name: featureName,
+        requirements: competitor.features[featureName],
+        features: []
+      }));
+      
+      matrix.features = featuresAndRequirements;
+      
+      competitorMatrix.push(matrix);
+    }
+  } else {
+    competitorMatrix.push({
+      name: "Competitors",
+      characteristics: {}
+    });
+  }
+
+  return competitorMatrix;
+}
+
+// Epic+Feature List Creation
+function createEpicFeatures(productIdea) {
+  const epics = [];
+  
+  // Organize product ideas into epics with features and requirements
+  for (const epic in productIdea.epics) {
+    if (!epics.length) {
+      epics.push(epic);
+    } else {
+      // Find the most relevant features and requirements for each epic
+      const featureRequirements = {};
+      for (const feature of productIdea.features) {
+        if (!featureRequirements[feature.name]) {
+          featureRequirements[feature.name] = [];
+        }
+        featureRequirements[feature.name].push(feature.requirements);
+      }
+
+      // Create a list of features and requirements for each epic
+      const featuresAndRequirements = Object.keys(featureRequirements).map(featureName => ({
+        name: featureName,
+        requirements: featureRequirements[featureName],
+        features: []
+      }));
+
+      epics.push(epic, featuresAndRequirements);
+    }
+  }
+
+  return epics;
+}
+
+// Agile Methodology
+function implementAgileMethodology() {
+  const sprintPlanning = [];
+  
+  // Plan and execute the next sprint
+  for (let i = 0; i < 4; i++) {
+    sprintPlanning.push({
+      title: `Sprint ${i + 1}`,
+      features: []
+    });
+  }
+
+  return sprintPlanning;
+}
+
+// Raw Model File Content
+raw_modelfile_content = `
+{
+  "id": "product-manager",
+  "name": "Product Manager",
+  "expertise": [
+    {
+      "domain": "Market Analysis",
+      "skillset": ["Data Analysis", "Market Research"]
+    },
+    {
+      "domain": "Customer Insights",
+      "skillset": ["Customer Segmentation", "Behavioral Analysis"]
+    }
+  ],
+  "tools": ["Business Model Canvas", "Competitive Analysis Tool", "Epic Management System", "Agile Methodology"],
+  "description": "The Product Manager is responsible for analyzing product ideas, creating business plans, competitor matrices, and epic+feature lists for an MVP. They work closely with cross-functional teams to ensure products meet customer needs and stay competitive in the market.",
+  "uniqueContributions": [
+    {
+      "domain": "Market Analysis",
+      "skillset": ["Data Visualization", "Competitor Research"]
+    },
+    {
+      "domain": "Customer Insights",
+      "skillset": ["Conducting Customer Interviews", "Analyzing Feedback"]
+    }
+  ]
+}
+
+{
+  "name": "Product Idea Analysis",
+  "functionality": [
+    {
+      "insight": "The product idea has a strong demand in the market!",
+      "data": {"features": [{"feature1": "strong demand"}]}
+    },
+    {
+      "insight": "The product can be improved with additional features.",
+      "data": {"features": [{"feature2": "additional features"}]}
+    }
+  ]
+}
+
+{
+  "name": "Business Plan Development",
+  "functionality": [
+    {
+      "insight": "To provide a strong business plan.",
+      "data": {}
+    },
+    {
+      "insight": "To achieve customer satisfaction.",
+      "data": {}
+    }
+  ]
+}
+
+{
+  "name": "Competitor Matrix Creation",
+  "functionality": [
+    {
+      "title": "Marketing campaign",
+      "strategy": "Launch a targeted marketing campaign to reach new customers."
+    },
+    {
+      "title": "Supplier partnerships",
+      "strategy": "Establish partnerships with key suppliers to reduce costs and improve product quality."
+    }
+  ]
+}
+
+{
+  "name": "Epic+Feature List Creation",
+  "functionality": [
+    {
+      "epic": "product-Idea-1",
+      "featuresAndRequirements": [
+        {"feature1": {"requirements": ["strong demand"]}},
+        {"feature2": {"requirements": ["additional features"]}}
+      ]
+    },
+    {
+      "epic": "product-Idea-2",
+      "featuresAndRequirements": [
+        {"feature3": {"requirements": ["customer satisfaction"]}},
+        {"feature4": {"requirements": ["cost reduction"]}}
+      ]
+    }
+  ]
+}
+
+{
+  "name": "Agile Methodology",
+  "functionality": [
+    {
+      "sprintPlanning": [
+        {
+          "title": "Sprint-1",
+          "features": []
+        },
+        {
+          "title": "Sprint-2",
+          "features": []
+        },
+        {
+          "title": "Sprint-3",
+          "features": []
+        }
+      ]
+    }
+  ]
+}
+`;
+
+// Add more code as needed
